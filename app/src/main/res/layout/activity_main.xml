@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3366FF"
+    tools:context="com.test.amirelkayam.sbs_firebase.MainActivity">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/logo1"
+        android:id="@+id/main_image"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp" />
+
+
+    <Button
+        android:id="@+id/btn_suppliers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ספקים"
+        android:layout_below="@+id/main_image"
+        android:layout_toLeftOf="@+id/main_image"
+        android:layout_toStartOf="@+id/main_image"
+        android:layout_marginRight="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginTop="122dp" />
+
+    <Button
+        android:id="@+id/btn_customers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btn_suppliers"
+        android:layout_alignBottom="@+id/btn_suppliers"
+        android:layout_toEndOf="@+id/main_image"
+        android:layout_toRightOf="@+id/main_image"
+        android:text="לקוחות" />
+
+</RelativeLayout>
