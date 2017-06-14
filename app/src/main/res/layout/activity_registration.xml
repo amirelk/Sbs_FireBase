@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_login"
+    tools:context="com.test.amirelkayam.sbs_firebase.Registration">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/logo1"
+        android:id="@+id/main_image"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp" />
+
+    <EditText
+        android:id="@+id/registerEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="41dp"
+        android:ems="10"
+        android:hint="כתובת מייל"
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteX="168dp"
+        tools:layout_editor_absoluteY="43dp"
+        android:layout_below="@+id/main_image"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/registerPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="49dp"
+        android:ems="10"
+        android:hint="סיסמא"
+        android:inputType="textPassword"
+        android:textAlignment="viewStart"
+        tools:layout_editor_absoluteX="168dp"
+        tools:layout_editor_absoluteY="117dp"
+        android:layout_below="@+id/registerEmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+
+    <Button
+        android:id="@+id/btnRegisterNow"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:onClick="btnRegisterNow_Click"
+        android:background="@drawable/register_now_btn"
+        tools:layout_editor_absoluteX="146dp"
+        tools:layout_editor_absoluteY="375dp"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/registerPassword"
+        android:layout_centerHorizontal="true" />
+
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:text="חזור"
+        android:textColor="#0033CC"
+        android:layout_marginTop="19dp"
+        android:layout_below="@+id/btnRegisterNow"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

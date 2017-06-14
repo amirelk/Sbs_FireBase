@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_login"
+    tools:context="com.test.amirelkayam.sbs_firebase.Login">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/logo1"
+        android:id="@+id/main_image"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="13dp" />
+
+    <EditText
+        android:id="@+id/loginEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="כתובת מייל"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="82dp"
+        android:layout_above="@+id/btnLogin"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/loginPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="viewStart"
+        android:ems="10"
+        android:hint="סיסמא"
+        android:inputType="textPassword"
+        android:layout_above="@+id/btnLogin"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="270dp"
+        android:layout_height="120dp"
+        android:onClick="btnLogin_Click"
+        android:background="@drawable/login_btn"
+        android:layout_above="@+id/btn_reset_password"
+        android:layout_centerHorizontal="true" />
+
+
+    <Button
+        android:id="@+id/btn_reset_password"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:text="שכחת סיסמא ? לחץ כאן"
+        android:onClick="btnResetPassword_Click"
+        android:layout_marginBottom="15dp"
+        android:layout_above="@+id/btnRegister"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:onClick="btnRegister_Click"
+        android:background="@drawable/register_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
