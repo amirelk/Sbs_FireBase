@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_purple"
+    tools:context="com.test.amirelkayam.sbs_firebase.Inventory">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="הזן שם לקוח"
+        android:ems="10"
+        android:layout_alignTop="@+id/button_findCustomers"
+        android:layout_toLeftOf="@+id/button_findCustomers"
+        android:layout_toStartOf="@+id/button_findCustomers"
+        android:id="@+id/editText_customers" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/main_image"
+        android:background="@drawable/logo1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="הוספת לקוח חדש"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="87dp"
+        android:id="@+id/newCustomers"
+        android:layout_below="@+id/main_image"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="חיפוש"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="35dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginTop="35dp"
+        android:id="@+id/button_findCustomers"
+        android:layout_below="@+id/main_image"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>
