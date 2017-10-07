@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -20,6 +22,9 @@ import java.util.HashMap;
 public class NewCustomer extends AppCompatActivity {
 
     private DatabaseReference mDatabaseCustomers;
+    private FirebaseAuth auth;
+
+    FirebaseUser user = auth.getInstance().getCurrentUser();
 
     private ImageView mMainImage;
     private EditText mNameField;
@@ -33,7 +38,7 @@ public class NewCustomer extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_customer);
 
-        mDatabaseCustomers = FirebaseDatabase.getInstance().getReference().child("Customers");
+        mDatabaseCustomers = FirebaseDatabase.getInstance().getReference().child("Users").child(user.getUid()).child("Customers");
 
         mMainImage = (ImageView) findViewById(R.id.main_image);
         mNameField = (EditText) findViewById(R.id.name_field);
@@ -88,6 +93,7 @@ public class NewCustomer extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(NewCustomer.this, "הלקוח נוסף בהצלחה!", Toast.LENGTH_LONG).show();
+                            finish();
 
                         } else {
                             Toast.makeText(NewCustomer.this, "שגיאה...", Toast.LENGTH_LONG).show();

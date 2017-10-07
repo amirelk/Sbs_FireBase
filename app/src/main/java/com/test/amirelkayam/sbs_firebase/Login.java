@@ -15,6 +15,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
@@ -22,8 +23,8 @@ public class Login extends AppCompatActivity {
     private EditText loginPassword;
     //  private Button mButtonResetPassword;
 
-    private FirebaseAuth firebaseAuth;
-
+    private FirebaseAuth auth;
+    private FirebaseAuth.AuthStateListener authStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +35,36 @@ public class Login extends AppCompatActivity {
         loginPassword = (EditText) findViewById(R.id.loginPassword);
         //   mButtonResetPassword = (Button) findViewById(R.id.btn_reset_password);
 
-        firebaseAuth = FirebaseAuth.getInstance();
+        auth = FirebaseAuth.getInstance();
 
+        if (auth.getCurrentUser() != null) {
+            startActivity(new Intent(Login.this, MainActivity.class));
+            finish();
+        }
+
+        authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+
+                if(user != null){
+                    // User is signed In
+
+                    Intent intent_chackreg = new Intent(Login.this, MainActivity.class );
+                    startActivity(intent_chackreg);
+                } else {
+                    //User is signed OUT
+                }
+            }
+        };
+/*
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+        if (user != null) {
+
+            Intent intent = new Intent(Login.this , MainActivity.class);
+            startActivity(intent);
+        }
+*/
     }
 
     public void btnLogin_Click(View v){
@@ -55,7 +84,7 @@ public class Login extends AppCompatActivity {
 
         final ProgressDialog progressDialog = ProgressDialog.show(Login.this, "אנא המתן...", "טוען...", true);
 
-        (firebaseAuth.signInWithEmailAndPassword(loginEmail.getText().toString(), loginPassword.getText().toString()))
+        (auth.signInWithEmailAndPassword(loginEmail.getText().toString(), loginPassword.getText().toString()))
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {

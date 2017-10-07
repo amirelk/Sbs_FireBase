@@ -14,9 +14,9 @@
         android:layout_gravity="center_horizontal"
         android:src="@drawable/logo1"
         android:id="@+id/main_image"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="23dp" />
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/tv_logedonas"
+        android:layout_centerHorizontal="true" />
 
 
     <Button
@@ -40,5 +40,38 @@
         android:layout_toEndOf="@+id/main_image"
         android:layout_toRightOf="@+id/main_image"
         android:text="לקוחות" />
+
+    <Button
+        android:id="@+id/btn_signOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="38dp"
+        android:text="החלף משתמש"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/btn_suppliers"
+        android:layout_toEndOf="@+id/btn_suppliers" />
+
+    <TextView
+        android:id="@+id/tv_logedonas"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="14dp"
+        android:textStyle="bold"
+        android:text="יוזר מחובר" />
+
+    <TextView
+        android:id="@+id/tv_userlogedon"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tv_logedonas"
+        android:layout_alignBottom="@+id/tv_logedonas"
+        android:layout_alignEnd="@+id/btn_signOut"
+        android:layout_alignRight="@+id/btn_signOut"
+        android:textColor="#FF0000" />
 
 </RelativeLayout>

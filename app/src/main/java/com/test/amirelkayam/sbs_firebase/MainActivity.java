@@ -2,12 +2,17 @@ package com.test.amirelkayam.sbs_firebase;
 
 import android.content.Intent;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {// Start MainActivity
 
@@ -15,6 +20,13 @@ public class MainActivity extends AppCompatActivity {// Start MainActivity
 
     private Button mSuppliers;
     private Button mCustomers;
+    private Button mSignOut;
+
+  //  private TextView mLogedOnAs;
+    private TextView mUserLogedOn;
+
+    private FirebaseAuth auth;
+    private FirebaseAuth.AuthStateListener authListener;
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -27,6 +39,31 @@ public class MainActivity extends AppCompatActivity {// Start MainActivity
 
         mSuppliers = (Button) findViewById(R.id.btn_suppliers);
         mCustomers = (Button) findViewById(R.id.btn_customers);
+        mSignOut = (Button) findViewById(R.id.btn_signOut);
+
+     //   mLogedOnAs = (TextView) findViewById(R.id.tv_logedonas);
+        mUserLogedOn = (TextView) findViewById(R.id.tv_userlogedon);
+
+
+        auth = FirebaseAuth.getInstance();
+
+        //get current user
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        authListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user == null) {
+                    // user auth state is changed - user is null
+                    // launch login activity
+                    startActivity(new Intent(MainActivity.this, Login.class));
+                    finish();
+                }
+            }
+        };
+
+        mUserLogedOn.setText(user.getEmail());
 
 
         // go to CLASS >>  Suppliers.class
@@ -48,6 +85,14 @@ public class MainActivity extends AppCompatActivity {// Start MainActivity
             }
         });
 
+
+        mSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                auth.signOut();
+                finish();
+            }
+        });
 
     }// end onCreate
 
