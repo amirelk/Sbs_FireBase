@@ -98,6 +98,7 @@ public class NewSupplier extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(NewSupplier.this, "הספק נוסף בהצלחה!", Toast.LENGTH_LONG).show();
+                            finish();
 
                         } else {
                             Toast.makeText(NewSupplier.this, "שגיאה...", Toast.LENGTH_LONG).show();
